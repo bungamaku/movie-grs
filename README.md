@@ -18,7 +18,7 @@ To re-iterate:
 1. The ultimate goal for this starter project is not the **code**, but the **knowledge**.
 2. If you already have your own project structure, you **should NOT** try to change it to be like this project structure. Unless you have a strong reason to.
 3. If you already have your own project and plan to incorporate something (e.g. i18n), hopefully you can do it **faster** just by reading this repo.
-4. We provide **no npm package to install**. Our main goal is the dissemination of **knowledge**, not the **code**.
+4. Currently, we **do not provide npm package to install**. We might in the future. But please remember that our main goal is the dissemination of **knowledge**, not the **code**.
 
 ---
 
