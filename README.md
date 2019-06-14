@@ -2,6 +2,12 @@
 
 Yet another React starter project.
 
+If you would like to jump to try running this project on dev mode, [go here](#development).
+
+If you want to know what's needed for deployment, [go here](#deployment).
+
+---
+
 Before you proceed further, we'd like to say:
 
 **We hope you will gain knowledge just by reading the code and documentation even WITHOUT using the starter itself**.
@@ -77,12 +83,12 @@ To re-iterate:
 **.env.defaults**
 
 - Default values that will be used if you don't specify it yourself.
-- If you do specify your own `.env` file, check the webpack configuration (`webpack.dev.js` or `webpack.prod.js`), specifically on `path` option.
-- Update it as necessary.
+- If you do specify your own `.env` file, you can create `.env` file and put the mandatory values (mandatory valuesa are listed in `.env.example`)
+- If you want to specify another file, update the webpack configuration(`webpack.dev.js` or `webpack.prod.js`): `DotEnv` section, `path` option.
 
 **.env.example**
 
-- Contains information on what values need to be present if you specify your own .env file.
+- Contains information about mandatory values needed to be present if you specify your own `.env` file.
 
 **.gitignore**
 
