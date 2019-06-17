@@ -37,6 +37,8 @@ To re-iterate:
 
 ## Folder Structure
 
+Short description on what each folder contains. Majority of individual files also contain header comments. Please check them out before trying to read the code.
+
 **.vscode**
 
 - Contains custom VSCode settings, e.g. `tabSize`, `formatOnSave`.

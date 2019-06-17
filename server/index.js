@@ -1,12 +1,14 @@
 /*
  * index.js
- * Taken from https://facebook.github.io/create-react-app/docs/deployment#serving-apps-with-client-side-routing
+ * Taken from https://facebook.github.io/create-react-app/docs/deployment#serving-apps-with-client-side-routing.
  * We need to redirect all things to index.html so the react-router things will wowk.
+ * More detail about the issue that makes us need this kind of solution:
+ * https://stackoverflow.com/questions/27928372/react-router-urls-dont-work-when-refreshing-or-writing-manually.
  *
  * Author: Timotius Nugroho Chandra (timotius.n.chandra@gdplabs.id)
  * Created at: June 6th 2019
  * -----
- * Last Modified: June 9th 2019
+ * Last Modified: June 17th 2019
  * Modified By: Timotius Nugroho Chandra (timotius.n.chandra@gdplabs.id)
  * -----
  * Copyright (c) 2019 GLAIR. All rights reserved.
