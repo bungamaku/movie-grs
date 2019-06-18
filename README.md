@@ -156,11 +156,13 @@ Short description on what each folder contains. Majority of individual files als
    1. [TSLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) for highlighting TSLint errors. Also to fix it automatically (when applicable). The config to auto fix (on save action) has been included on `.vscode/settings.json`.
    2. [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). Analogous to TSLint extension above but it's for Prettier.
    3. [psioniq File Header](https://marketplace.visualstudio.com/items?itemName=psioniq.psi-header) (for header comment file). vscode command to insert header comment: `Header Insert` (on Mac keyboard: Cmd+P, then type `> Header Insert` (notice the angle bracket)). Template and instruction on how to insert it is in the bottom of this readme.
+   4. [line-counter](https://marketplace.visualstudio.com/items?itemName=dollyn.line-counter) to count the LoC. Run vscode command `Count Workspace` (Ctrl+Shift+P) to execute it.
 3. Run `./scripts/setup.sh`
-   1. One of the goal for this script is to install node (using [NVM](https://github.com/nvm-sh/nvm)).
-   2. Sometimes we still can't execute `node` command on terminal after running the script. When this happens, please try to install it yourself. Instructions [here](https://github.com/nvm-sh/nvm).
-   3. Make sure you can execute `node` and `npm` on your terminal before proceeding.
-   4. The other goal is to do `npm install`. If you already have `node` & `npm` and don't want to install NVM, skip this `./scripts/setup.sh` but remember to run `npm install` yourself.
+   1. The script will only work on OSX or Linux environment. If you use Windows OS, you'll need to read what the script does and do it yourself.
+   2. One of the goal for this script is to install node (using [NVM](https://github.com/nvm-sh/nvm)).
+   3. Sometimes we still can't execute `node` command on terminal after running the script. When this happens, please try to install it yourself. Instructions [here](https://github.com/nvm-sh/nvm).
+   4. Make sure you can execute `node` and `npm` on your terminal before proceeding.
+   5. The other goal is to do `npm install`. If you already have `node` & `npm` and don't want to install NVM, skip this `./scripts/setup.sh` but remember to run `npm install` yourself.
 4. Run `npm start`. For subsequent development, just run this step. No need to do step 1-3 again. Unless there's an update to `package.json`, then you need to run `npm install` again.
 5. Navigate to `localhost:3000`
 
