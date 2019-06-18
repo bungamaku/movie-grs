@@ -87,6 +87,7 @@ Short description on what each folder contains. Majority of individual files als
 - Default values that will be used if you don't specify it yourself.
 - If you do specify your own `.env` file, you can create `.env` file and put the mandatory values (mandatory valuesa are listed in `.env.example`)
 - If you want to specify another file, update the webpack configuration(`webpack.dev.js` or `webpack.prod.js`): `DotEnv` section, `path` option.
+- The webpack (`webpack.dev.js` and `webpack.prod.js` are set to look for `./.env` file). It is deliberately not committed to source control because it will be different on each machine. Due to this, we will see warning "Failed to load ./.env." when running any webpack script. It's normal and to be expected.
 
 **.env.example**
 
@@ -159,7 +160,8 @@ Short description on what each folder contains. Majority of individual files als
    1. One of the goal for this script is to install node (using [NVM](https://github.com/nvm-sh/nvm)).
    2. Sometimes we still can't execute `node` command on terminal after running the script. When this happens, please try to install it yourself. Instructions [here](https://github.com/nvm-sh/nvm).
    3. Make sure you can execute `node` and `npm` on your terminal before proceeding.
-4. Run `npm start`. For subsequent development, just run this step. No need to do step 1-3 again.
+   4. The other goal is to do `npm install`. If you already have `node` & `npm` and don't want to install NVM, skip this `./scripts/setup.sh` but remember to run `npm install` yourself.
+4. Run `npm start`. For subsequent development, just run this step. No need to do step 1-3 again. Unless there's an update to `package.json`, then you need to run `npm install` again.
 5. Navigate to `localhost:3000`
 
 ---

@@ -3,20 +3,32 @@
   "version": "0.0.1",
   "description": "Starter for scaffolding a new CSR-only React web app",
   "scripts": {
-    "buildDev": "webpack --config webpack.dev.js --progress",
-    "buildProd": "webpack --config webpack.prod.js --progress",
-    "buildAlt": "webpack --config webpack.prod.alt.js --progress",
-    "build": "npm run buildProd",
+    "build-dev": "webpack --config webpack.dev.js --progress",
+    "build-prod": "webpack --config webpack.prod.js --progress",
+    "build-alt": "webpack --config webpack.prod.alt.js --progress",
+    "build": "npm run build-prod",
     "lint": "./node_modules/tslint/bin/tslint -p tsconfig.json",
     "lint-fix": "./node_modules/tslint/bin/tslint -p tsconfig.json --fix",
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "prettier": "prettier --check ./src/**/*.{ts,tsx}",
-    "prettier-fix": "prettier --write ./src/**/*.{ts,tsx}"
+    "prettier-fix": "prettier --write ./src/**/*.{ts,tsx}",
+    "source-map": "npx source-map-explorer dist/*.js"
   },
   "scriptsComments": {
-    "buildDev": "build code in development mode."
+    "build-dev": "Build in dev mode (should never need this but just in case)",
+    "build-prod": "Build in prod mode (source map hidden; check webpack.prod.js for details)",
+    "build-alt": "Build in prod mode but with source map not hidden",
+    "build": "Alis for build-prod, so CI/CD can just invoke the widely known `npm run build` script",
+    "lint": "Run the lint yourself (should not need this we already use vscode tslint extension)",
+    "lint-fix": "Try to auto-fix all lint errors",
+    "start": "Start the development server (using webpack-dev-server) and watch for changes (no HMR yet)",
+    "test": "Run all test suites",
+    "coverage": "Run test AND generate code coverage",
+    "prettier": "Run prettier (no auto format) yourself (should not need this if we already use vscode prettier extension)",
+    "prettier-fix": "Run prettier AND its auto format",
+    "source-map": "Analyzes the bundle (must run build-alt first because it contains unhidden source map)"
   },
   "author": "GDP Labs",
   "license": "ISC",

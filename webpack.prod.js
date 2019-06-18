@@ -9,10 +9,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(common, {
   mode: "production",
 
-  // "A separate source map is generated and no link from bundled code to
-  // Line numbers are correctly mapped since it gets mapped to the original code.
-  // It yields the best quality SourceMaps for development."
-  // Source: https://webpack.js.org/configuration/devtool/#development
+  // "A separate source map is generated and no link from bundled code to source map file
+  // Source: https://webpack.js.org/configuration/devtool/#production
   // --
   // Differences between 'hidden-source-map' and 'source-map':
   // 'hidden-source-map': "Uncaught TypeError: Cannot read property 'xxx' of undefined at eval (main.js:1)"
@@ -37,7 +35,7 @@ module.exports = merge(common, {
       filename: "[name].[contenthash].css"
     }),
 
-    // So we will be able to type VERSION on dev console to get app version.
+    // So we will be able to type APP_VERSION on dev console to get app version.
     // Why not merge it with dotenv-webpack? dotenv is for "external" constants, VERSION is "internal" constants.
     // In the future, this might need upgrade if we want to include commit hash in this VERSION string.
     // Will need to work with infra team on how to approach it.
@@ -59,6 +57,10 @@ module.exports = merge(common, {
       // because it means that chunks can be shared even between async and non-async chunks.
       // https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkschunks
       chunks: "all"
+
+      // Everything else will use defaults from webpack
+      // Maximum 3 files (unless it's dynamic import)
+      // Minimum file size of 30 KB (all smaller files would be joined together, again unless it's dynamic import)
     }
   }
 });

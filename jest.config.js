@@ -10,7 +10,7 @@
  * Author: Timotius Nugroho Chandra (timotius.n.chandra@gdplabs.id)
  * Created at: May 23rd 2019
  * -----
- * Last Modified: June 7th 2019
+ * Last Modified: June 18th 2019
  * Modified By: Timotius Nugroho Chandra (timotius.n.chandra@gdplabs.id)
  * -----
  * Copyright (c) 2019 GLAIR. All rights reserved.
@@ -34,7 +34,10 @@ module.exports = {
     "^.+\\.(ts|tsx)?$": "ts-jest"
   },
 
-  // Custom module resolution. Must be in sync with tsconfig.json -> paths
+  // Custom module resolution.
+  // So we don't need to type "import xxx from "../../../../"".
+  // Instead, we can type "import xxx from "@common/xxx"".
+  // Must be in sync with tsconfig.json -> paths & webpack.common.js -> resolve -> alias
   moduleNameMapper: {
     "@common/(.*)": "<rootDir>/src/common/$1",
     "@domain/(.*)": "<rootDir>/src/domain/$1"

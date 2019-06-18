@@ -10,7 +10,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(common, {
   mode: "development",
 
-  // A source map is added as a DataUrl (base64) to the original code
+  // Each module is executed with eval() and a SourceMap is added as a DataUrl to the eval().
+  // Initially it is slow, but it provides fast rebuild speed and yields real files.
   // Line numbers are correctly mapped since it gets mapped to the original code.
   // It yields the best quality SourceMaps for development.
   // See https://webpack.js.org/configuration/devtool/#development

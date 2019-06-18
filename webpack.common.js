@@ -45,7 +45,9 @@ module.exports = {
   // Options to specify how modules are resolved.
   resolve: {
     alias: {
-      // Must be in sync with tsconfig.json -> paths
+      // So we don't need to type "import xxx from "../../../../"".
+      // Instead, we can type "import xxx from "@common/xxx"".
+      // Must be in sync with tsconfig.json -> paths & jest.config.js -> moduleNameMapper
       "@common": path.resolve(__dirname, "src/common"),
       "@domain": path.resolve(__dirname, "src/domain")
     },

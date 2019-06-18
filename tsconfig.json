@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": ".", // "paths" option needs this "baseUrl" option
+
+    // So we don't need to type "import xxx from "../../../../"".
+    // Instead, we can type "import xxx from "@common/xxx"".
+    // Must be in sync with webpack.common.js -> resolve -> alias & jest.config.js -> moduleNameMapper
     "paths": {
       "@common/*": ["src/common/*", "src/common/*/index.ts", "src/common/*/index.tsx"],
       "@domain/*": ["src/domain/*", "src/domain/*/index.ts", "src/domain/*/index.tsx"]
@@ -16,6 +20,8 @@
     // "module" specifies module code generation. "esNext" will produce "import", "commonjs" will produce "require".
     // "esNext" is required for webpack's tree-shaking feature to work (tree-shaking will not work with "require" syntax).
     // Why "esNext" and nost just "es6"? Because we need `Dynamic Import` and it is only supported when '--module' flag is 'commonjs' or 'esNext'.
+    // The weird thing: although "commonjs" doesn't complain 'Dynamic Import' syntax, it will not produce dynamically imported modules
+    // when we build it using webpack, so using "commonjs" as the value for "module" option is not...an option (get it? haha)
     "module": "esNext",
 
     // Needed so we can import code from library which module can't be resolved using "moduleResolution": "classic".
@@ -25,10 +31,12 @@
     // 2. "exclude" such as "exclude": ["./src/**/*.test.tsx", "./src/**/*.test.ts"] is also not an option.
     //    It's OK if it's just for test file. Unfortunately, apollo-boost will surely be needed outside test file.
     // Therefore, we need to force module resolution to "node".
+    // If you omit this option and your VSCode doesn't give warning, try restarting it.
+    // Or try to compile it via CLI.
     "moduleResolution": "node",
 
-    "target": "esNext",
-    "jsx": "react",
+    "target": "esNext", // Specify the target code version of TS compiler output
+    "jsx": "react", // what kind of JSX to be supported in .tsx files
 
     //strict: true === noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes, strictPropertyInitialization.
     "strict": true,
