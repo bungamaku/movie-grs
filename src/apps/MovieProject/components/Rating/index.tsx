@@ -1,0 +1,53 @@
+import * as React from "react";
+import styled from "styled-components";
+
+import * as StarOff from "../../../../../public/images/star-off.png";
+import * as StarOn from "../../../../../public/images/star-on.png";
+
+const Star = styled.img`
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-right: 5px;
+`;
+
+const Rate = styled.span`
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+`;
+
+export interface Props {
+  ratingPoint: number;
+}
+
+function getStar(ratingPoint: number): any[] {
+  let allStars: number = 5;
+  let onStars: number = Math.floor(ratingPoint / 2);
+  const result: any[] = [];
+
+  while (allStars > 0) {
+    if (onStars > 0) {
+      result.push(<Star src={StarOn} alt="star-on" key={allStars} />);
+      onStars--;
+    } else {
+      result.push(<Star src={StarOff} alt="star-off" key={allStars} />);
+    }
+    allStars--;
+  }
+
+  return result;
+}
+
+export default function Rating({ ratingPoint }: Props) {
+  if (ratingPoint < 0 || ratingPoint > 10) {
+    throw new Error("Rating point must be a positive number between 0-10.");
+  }
+
+  return (
+    <div className="star">
+      <span>
+        {getStar(ratingPoint)} <Rate>({ratingPoint}/10)</Rate>
+      </span>
+    </div>
+  );
+}
