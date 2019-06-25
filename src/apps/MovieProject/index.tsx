@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./pages";
 import "./styles/index.css";
 
-export const MovieProject = () => {
+export default function MovieProject() {
   return (
     <BrowserRouter>
       <App />
     </BrowserRouter>
   );
-};
+}

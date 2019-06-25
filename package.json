@@ -14,7 +14,9 @@
     "coverage": "jest --coverage",
     "prettier": "prettier --check ./src/**/*.{ts,tsx}",
     "prettier-fix": "prettier --write ./src/**/*.{ts,tsx}",
-    "source-map": "npx source-map-explorer dist/*.js"
+    "source-map": "npx source-map-explorer dist/*.js",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook"
   },
   "scriptsComments": {
     "build-dev": "Build in dev mode (should never need this but just in case)",
@@ -33,12 +35,15 @@
   "author": "GDP Labs",
   "license": "ISC",
   "dependencies": {
+    "@storybook/addon-info": "^5.1.9",
+    "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.16",
     "apollo-boost": "0.4.1",
     "apollo-client": "^2.6.3",
     "graphql": "14.3.1",
     "react": "16.8.6",
     "react-apollo": "2.5.6",
+    "react-docgen-typescript-loader": "^3.1.0",
     "react-dom": "16.8.6",
     "react-intl": "2.9.0",
     "react-loadable": "5.5.0",
@@ -56,6 +61,11 @@
     "react-router-dom": "React de-facto library for routing (move between HTML pages)"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
     "@testing-library/react": "8.0.1",
     "@types/graphql": "^14.2.0",
     "@types/jest": "24.0.13",
@@ -64,6 +74,7 @@
     "@types/react-intl": "2.3.17",
     "@types/react-loadable": "5.5.1",
     "@types/react-router-dom": "4.3.3",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "2.0.1",
     "css-loader": "2.1.1",
     "dotenv-webpack": "1.7.0",
